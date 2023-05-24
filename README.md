@@ -1,5 +1,5 @@
 # Dosinger-Vaccine-booking-system
-A backend Spring project which uses JPA/Hibernate to connect to database.
+A backend Spring project which uses JPA/Hibernate ORM.
 This Project is an organised project which consists of several packages Controller, Service, ServiceImpl, Repository, DTO's, Transformer
 , Enum, Exception, Model.
 It also hides the entity by using Response and Request DTO's (Data Transfer Object)
