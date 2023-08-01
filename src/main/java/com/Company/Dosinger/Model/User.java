@@ -30,6 +30,9 @@ public class User {
     @Column(name = "email", unique = true, nullable = false)
     String email;
 
+    @Column(name = "password", unique = true, nullable = false)
+    String password;
+
     @Column(name = "mobile", unique = true, nullable = false)
     String mobile;
 
@@ -51,4 +54,6 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     Dose2 dose2;
+
+
 }

@@ -4,6 +4,7 @@ import com.Company.Dosinger.DTO.Request.UserRequestDto;
 import com.Company.Dosinger.DTO.Response.UserResponseDto;
 import com.Company.Dosinger.Exception.UserNotFoundException;
 import com.Company.Dosinger.Service.Impl.UserServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    UserServiceImpl userService;
+    private final UserServiceImpl userService;
+
+    @GetMapping("/auth")
+    public ResponseEntity<String> authenticate(){
+        return ResponseEntity.ok("Authenticated");
+    }
 
     @PostMapping("/add")
     public ResponseEntity addUser(@RequestBody UserRequestDto user){

@@ -3,6 +3,7 @@ package com.Company.Dosinger.Controller;
 import com.Company.Dosinger.DTO.Request.CenterRequestDto;
 import com.Company.Dosinger.DTO.Response.CenterResponseDto;
 import com.Company.Dosinger.Service.CenterService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/center")
+@RequiredArgsConstructor
 public class CenterController {
 
-    @Autowired
-    CenterService centerService;
+
+    private final CenterService centerService;
     @PostMapping("/add")
     public ResponseEntity addCenter(@RequestBody CenterRequestDto center){
         CenterResponseDto responseDto = centerService.addCenter(center);

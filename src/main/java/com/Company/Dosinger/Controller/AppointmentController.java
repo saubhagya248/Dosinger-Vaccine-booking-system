@@ -5,6 +5,7 @@ import com.Company.Dosinger.DTO.Response.AppointmentResponseDto;
 import com.Company.Dosinger.Exception.DoctorNotFoundException;
 import com.Company.Dosinger.Exception.UserNotFoundException;
 import com.Company.Dosinger.Service.AppointmentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("appointment")
+@RequiredArgsConstructor
 public class AppointmentController {
 
-
-    @Autowired
-    AppointmentService appointmentService;
+    private final AppointmentService appointmentService;
     @PostMapping("/book")
     public ResponseEntity bookAppointment(@RequestBody AppointmentRequestDto appointmentRequestDto){
         try{

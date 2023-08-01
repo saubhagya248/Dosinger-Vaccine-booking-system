@@ -5,6 +5,7 @@ import com.Company.Dosinger.DTO.Request.DoctorRequestDto;
 import com.Company.Dosinger.DTO.Response.DoctorResponseDto;
 import com.Company.Dosinger.Exception.CenterDoesNotExistException;
 import com.Company.Dosinger.Service.DoctorService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/doctor")
+@RequiredArgsConstructor
 public class DoctorController {
 
-    @Autowired
-    DoctorService doctorService;
+    private final DoctorService doctorService;
 
     @PostMapping("/add")
     public ResponseEntity addDoctor(@RequestBody DoctorRequestDto requestDto){
